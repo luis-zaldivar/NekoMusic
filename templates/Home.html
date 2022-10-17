@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %}Home {% endblock %} {% block content %}
+    <table style="border: hidden">
+	<tr>
+      <td></td>
+      <th><div class="layout has-sidebar fixed-sidebar fixed-header">
+        <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+            <div class="image-wrapper">
+                <img src="https://user-images.githubusercontent.com/25878302/144499035-2911184c-76d3-4611-86e7-bc4e8ff84ff5.jpg"
+                     alt="sidebar background"/>
+            </div>
+            <div class="sidebar-layout">
+                <div class="sidebar-content">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <li class="menu-item">
+                                {% for li in lista %}
+                                    <a href="#">
+                                  <span class="menu-icon">
+                                      <i class="fa fa-bars"></i>
+                                  </span>
+                                        <span class="menu-title">{{ li }}</span>
+                                    </a>
+                                {% endfor %}
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+    </div></th>
+      <th><h1>Hola {{ user }}</h1>
+        <a href="{% url 'salir' %}">Salir</a></th>
+    </tr>
+	</table>
+
+{% endblock %}
