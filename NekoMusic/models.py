@@ -15,9 +15,9 @@ class Tipos(models.Model):
         return '%s'%(self.TipoUser)
 
 class canciones(models.Model):
-    nombre=models.CharField(max_length=30)
-    autor=models.CharField(max_length=30)
-    album=models.CharField(max_length=30)
+    nombre=models.CharField(max_length=40)
+    autor=models.CharField(max_length=40)
+    album=models.CharField(max_length=40)
     dircan=models.FileField(upload_to='Canciones/')
     genero=models.CharField(max_length=30)
 
