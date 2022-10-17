@@ -6,7 +6,8 @@ from NekoMusic.models import playli,canciones
 @login_required
 def home(request):
     li=playli.objects.all()
-    return render(request, "Home.html",{"lista":li})
+    listaCan=canciones.objects.all()
+    return render(request, "Home.html",{"lista":li,"musica":listaCan})
 def salir(request):
     logout(request)
     return redirect('/')
