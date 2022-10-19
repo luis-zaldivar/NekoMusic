@@ -1,0 +1,24 @@
+.container{
+    white:40vw;
+    height: 10.5vh;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.controles{
+    padding: 0rem 2rem;
+    display: flex;
+    width: 25%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.musica{
+    padding: 0rem 2rem;
+    display: flex;
+    width: 25%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

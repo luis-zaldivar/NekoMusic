@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title %}Home {% endblock %} {% block content %}
     <table style="border: hidden">
 	<tr>
-      <th style="height: 679px;">
+      <th style="height: 550px;">
           <div class="layout has-sidebar fixed-sidebar fixed-header">
               <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
                   <div class="image-wrapper">
@@ -13,6 +13,12 @@
                           <nav class="menu open-current-submenu">
                               <ul>
                                   <li class="menu-item">
+                                      <a href="{% url 'Home' %}">
+                                          <span class="menu-icon">
+                                              <i class="fa fa-home"></i>
+                                          </span>
+                                          <span class="menu-title">Musica</span>
+                                      </a>
                                       {% for li in lista %}
                                           <a href="#">
                                               <span class="menu-icon">
@@ -23,7 +29,7 @@
                                       {% endfor %}
                                       <a href="#">
                                               <span class="menu-icon">
-                                                  <i class="fa fa-arrow-right"></i>
+                                                  <i class="fa fa-plus"></i>
                                               </span>
                                               <span class="menu-title">Nueva lista</span>
                                           </a>
@@ -49,6 +55,7 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 {%for musica in musica%}
                     <tr>
                         <th scope="row"></th>
@@ -62,24 +69,58 @@
                         <td>{{musica.nombre}}</td>
                         <td>{{musica.autor}}</td>
                         <td>{{musica.album}}</td>
-            <td>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        ...
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </td>
-        </tr>
-        {%endfor%}
-    </tbody>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ...
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Agregar a playlist</a></li>
+                                    <li><a class="dropdown-item" href="#">Descarcar</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                {%endfor%}
+                </tbody>
             </table>
         </th>
     </tr>
     </table>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="controles">
+                <button type="button" class="btn btn-outline-primary">
+                    <span class="menu-icon">
+                        <i class="fa fa-random"></i>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                    <span class="menu-icon">
+                        <i class="fa fa-angle-left"></i>
+                    </span>
+            </button>
+                <button type="button" class="btn btn-outline-primary">
+                    <span class="menu-icon">
+                        <i class="fa fa-play"></i>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                    <span class="menu-icon">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                    <span class="menu-icon">
+                        <i class="fa fa-repeat"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="musica">
+                <input type="range" max="1" min="0" step="0.1" class="volumen">
+            </div>
+        </div>
 
+    </nav>
 {%endblock%}

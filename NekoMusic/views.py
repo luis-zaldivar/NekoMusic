@@ -5,6 +5,7 @@ from NekoMusic.models import playli,canciones
 # Create your views here.
 @login_required
 def home(request):
+
     li=playli.objects.all()
     listaCan=canciones.objects.all()
     return render(request, "Home.html",{"lista":li,"musica":listaCan})
