@@ -30,7 +30,7 @@ class canciones(models.Model):
 
 class playli(models.Model):
     NomPlay = models.CharField(max_length=30)
-    ID_Can = models.ManyToManyField(canciones)
+    ID_Can = models.ManyToManyField(canciones,null=True)
     ID_Usu = models.ManyToManyField(User)
     def __str__(self):
         return '%s' % (self.NomPlay)

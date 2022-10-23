@@ -17,24 +17,7 @@
 			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
 		</div><!-- /.logo -->
 
-        <div class="text-center">
-            <small class="text-danger">
-                {% if form.errors %}
-                    {% for field in form %}
-                        {% if field.errors %}
-                            {% for error in field.errors %}
-                                {{ error|escape }}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                    {% if form.non_field_errors %}
-                        {% for error in form.non_field_erorrs %}
-                            {{ error|escape }}
-                        {% endfor %}
-                    {% endif %}
-                {% endif %}
-            </small>
-        </div>
+
 
         <form class="form-inline " method="post"  style="margin: auto; width: 200px;">
             {% csrf_token%}
@@ -43,7 +26,9 @@
                 <p></p>
                     <input style="width : 200px; heigth : 1px" class="form-control mr-sm-0 " type="password" placeholder="Contraseña" aria-label="contra " name="password" />
                 <p></p>
-                    <input type="submit" class="btn btn-outline-success my-4 my-sm-0 " style=" width: 5vw; margin-left : 4vw;"type="submit " value="Ingresar"></input>
+                    <input type="submit" class="btn btn-outline-success my-4 my-sm-0 " style=" width: 5vw; margin-left : 4vw;"type="submit " value="Ingresar">
+                 <p></p>
+                    <input href="{% url 'Sign_up' %}" type="submit" class="btn btn-outline-success my-4 my-sm-0 " style=" width: 5vw; margin-left : 4vw;"type="submit " value="Sign up">
 		</div>
     </form>
 	</div>

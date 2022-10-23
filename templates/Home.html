@@ -60,7 +60,8 @@
                     <tr>
                         <th scope="row"></th>
                         <td>
-                            <button type="button" class="btn btn-outline-primary">
+                            <button onclick="document.getElementById('audioTag').src ='http://127.0.0.1:8000/Multimedia/{{ musica.dircan }}'"
+                                    type="button" class="btn btn-outline-primary">
                                 <span class="menu-icon">
                                     <i class="fa fa-play"></i>
                                 </span>
@@ -100,11 +101,6 @@
                     <span class="menu-icon">
                         <i class="fa fa-angle-left"></i>
                     </span>
-            </button>
-                <button type="button" class="btn btn-outline-primary">
-                    <span class="menu-icon">
-                        <i class="fa fa-play"></i>
-                    </span>
                 </button>
                 <button type="button" class="btn btn-outline-primary">
                     <span class="menu-icon">
@@ -118,7 +114,7 @@
                 </button>
             </div>
             <div class="musica">
-                <input type="range" max="1" min="0" step="0.1" class="volumen">
+                <audio id="audioTag"  controls style="width: 600px"autoplay></audio>
             </div>
         </div>
 

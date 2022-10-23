@@ -17,7 +17,7 @@
 .musica{
     padding: 0rem 2rem;
     display: flex;
-    width: 25%;
+    width: 50%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

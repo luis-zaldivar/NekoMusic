@@ -19,11 +19,13 @@ from NekoMusic import views
 from django.conf import settings
 from django.views.static import serve
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="Home"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('salir/', views.salir, name='salir'),
+    path('Sign_up/',views.Sign_up,name='Sign_up'),
 ]
 
 urlpatterns += {
