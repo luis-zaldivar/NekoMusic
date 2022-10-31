@@ -18,14 +18,13 @@ from django.urls import path, include, re_path
 from NekoMusic import views
 from django.conf import settings
 from django.views.static import serve
+from NekoMusic.API.router import router_Musica
+
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.home, name="Home"),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('salir/', views.salir, name='salir'),
-    path('Sign_up/',views.Sign_up,name='Sign_up'),
+    path('api/',include(router_Musica.urls)),
 ]
 
 urlpatterns += {
