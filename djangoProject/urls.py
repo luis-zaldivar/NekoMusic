@@ -20,16 +20,12 @@ from django.conf import settings
 from django.views.static import serve
 from NekoMusic.API.router import router_Musica
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
-<<<<<<< HEAD
     path('api/',include(router_Musica.urls)),
-=======
     path("", views.home, name="Home"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('salir/', views.salir, name='salir'),
->>>>>>> parent of 99bf451 (sing up)
 ]
 
 urlpatterns += {

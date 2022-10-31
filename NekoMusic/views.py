@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.contrib.auth import logout, authenticate,login
 from django.contrib import messages
 from NekoMusic.models import playli,canciones,Tipos
@@ -10,6 +11,8 @@ from django.views import View
 from .models import canciones
 # Create your views here.
 =======
+=======
+>>>>>>> parent of 99bf451 (sing up)
 from django.contrib.auth import logout
 from NekoMusic.models import playli,canciones
 # Create your views here.
@@ -22,5 +25,3 @@ def home(request):
 def salir(request):
     logout(request)
     return redirect('/')
-
->>>>>>> parent of 99bf451 (sing up)
