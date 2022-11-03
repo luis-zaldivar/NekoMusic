@@ -6,12 +6,13 @@ import * as Server from './Server'
      const listaCan=async ()=>{
          try {
              const res=await Server.listaSonds();
-             const datos=await res.json()
-             console.log(datos);
+             //const datos=await res.json()
+             console.log(res);
          }catch (error){
-             console.log(error);
+             console.log(error+" algo se murio ");
          }
      }
+
      useEffect(()=>{
          listaCan();
      },[]);
