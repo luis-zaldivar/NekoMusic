@@ -1,0 +1,12 @@
+.table-wrapper {
+
+    overflow-y: scroll;
+    height: fit-content;
+    max-height: 60vh;
+
+    margin-top: 22px;
+
+    margin: 15px;
+    padding-bottom: 20px;
+
+}

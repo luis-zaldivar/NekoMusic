@@ -17,6 +17,7 @@
     <style type="text/css">
         a { text-decoration: none;}
     </style>
+    <link rel="stylesheet" href="{% static "css/scroll.css " %}">
     <title>home</title>
 </head>
 <body >
@@ -25,9 +26,9 @@
             <img src='{% static "ima/logo_large.png" %}' width="80" height="70" alt="">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"style=" width: 20vw; margin-left : 50vw;">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"style=" width: 10vw; margin-left : 1vw;">Search</button>
+            <form class="d-flex" method="GET " action="/buscarx/">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"name="sound" style=" width: 20vw; margin-left : 50vw;">
+                <input type="submit" class="btn btn-outline-success my-4 my-sm-0 " type="submit " value="Buscar"style=" width: 10vw; margin-left : 1vw;">
             </form>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
@@ -39,7 +40,6 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Premium</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'salir' %}">Salir</a></li>
                     </ul>

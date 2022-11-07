@@ -33,3 +33,17 @@ def Sign_up(request):
             return redirect(to="/")
         data["form"]=formulario
     return render(request,'registration/registro.html',data)
+def busqueda(request):
+    li = playli.objects.all()
+    listaCan = canciones.objects.all()
+    if (request.GET["sound"]):
+        search=request.GET["sound"]
+        if len(search)>20:
+            mensaje="texto demaciado largo"
+            return render(request,"Busqueda.html",{"mesnaje":mensaje,"lista":li,"musica":listaCan})
+        else:
+            cancionSearch=canciones.objects.filter(nombre__icontains=search)
+            return render(request,"Busqueda.html",{"can":cancionSearch,"query":search,"lista":li,"musica":listaCan})
+    else:
+        mensaje = "campo vacio"
+        return render(request, "Busqueda.html", {"mesnaje": mensaje,"lista":li,"musica":listaCan})

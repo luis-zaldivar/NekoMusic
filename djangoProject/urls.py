@@ -27,7 +27,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('salir/', views.salir, name='salir'),
     path('Sign_up/',views.Sign_up,name='Sign_up'),
+    path("buscarx/", views.busqueda),
     path('api-auth/', include('rest_framework.urls')),
+
 ]
 
 urlpatterns += {
