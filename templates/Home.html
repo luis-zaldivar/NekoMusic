@@ -27,12 +27,14 @@
                                                     <span class="menu-title">{{ li }}</span>
                                                 </a>
                                             {% endfor %}
-                                            <a href="#">
-                                              <span class="menu-icon">
-                                                  <i class="fa fa-plus"></i>
-                                              </span>
-                                                <span class="menu-title">Nueva lista</span>
-                                            </a>
+                                            <div class="opcion">
+                                                <a href="#NewPlayList">
+                                                    <span class="menu-icon">
+                                                        <i class="fa fa-plus"></i>
+                                                    </span>
+                                                    <span class="menu-title" data-toggle="modal" data-target="#myModal">Nueva lista</span>
+                                                </a>
+                                            </div>
                                         </li>
                                     </ul>
                                 </nav>
@@ -123,4 +125,23 @@
         </div>
 
     </nav>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Titulo Modal</h4>
+                </div>
+                <div class="modal-body">
+                    Cuerpo de la modal
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

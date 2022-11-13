@@ -10,12 +10,35 @@ from .forms import Registro
 from django.contrib.auth.models import User
 
 # Create your views here.
+'''
+@login_required
+def login_view(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            return redirect('admin:index')
+        else:
+            return redirect('book_store_app:client_index')
+
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            user = authenticate(request, username=form.cleaned_data['username'],
+                                password=form.cleaned_data['password'])
+            if user is not None:
+                login(request, user)
+                return redirect('book_store_app:client_index')
+
+    form = LoginForm()
+    return render(request, 'book_store_app/login.html', {'form': form})
+'''
 @login_required
 def home(request):
-    persona=0
+    usuario = request.user
+    idu=request.user.id
     li=playli.objects.all()
+    PlayList=li.filter(ID_Usu=request.user)
     listaCan=canciones.objects.all()
-    return render(request, "Home.html",{"lista":li,"musica":listaCan})
+    return render(request, "Home.html",{"lista":PlayList,"musica":listaCan})
 def salir(request):
     logout(request)
     return redirect('/')
