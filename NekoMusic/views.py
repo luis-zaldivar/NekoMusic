@@ -37,9 +37,7 @@ def home(request):
     li = playli.objects.all()
     PlayList = li.filter(ID_Usu=request.user)
     listaCan = canciones.objects.all()
-    if(request.GET["PlaylisNew"]):
-        NamePlay=request.GET["PlaylisNew"]
-        print(NamePlay)
+
     return render(request, "Home.html", {"lista": PlayList, "musica": listaCan})
 
 
@@ -79,3 +77,13 @@ def busqueda(request):
     else:
         mensaje = "campo vacio"
         return render(request, "Busqueda.html", {"mesnaje": mensaje, "lista": PlayList})
+
+def nuevaLista(request):
+    if (request.GET["PlaylisNew"]):
+        IDLOG = request.user
+        NamePlay = request.GET["PlaylisNew"]
+        NewPlay = playli(NomPlay=NamePlay)
+        NewPlay.save()
+        NewPlay.ID_Usu.add(IDLOG.id)
+        messages.success(request, "Lista Creada")
+        return redirect(to="/")

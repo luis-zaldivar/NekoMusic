@@ -81,6 +81,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#">Agregar a playlist</a></li>
+                                            
                                             <li><a class="dropdown-item"
                                                    href="http://127.0.0.1:8000/Multimedia/{{ musica.dircan }}"
                                                    download='{{ musica.nombre }}.mp3'>Descarcar</a></li>
@@ -134,7 +135,7 @@
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Nueva PlayList</h4>
                 </div>
-                <form class="d-flex" method="GET ">
+                <form class="d-flex" method="GET " action="/NewList/">
                     <div class="modal-body">
                         <input class="form-control mr-sm-2" type="search" placeholder="Name PlayList" aria-label="Name PlayList" name="PlaylisNew">
                     </div>
