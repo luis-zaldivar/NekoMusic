@@ -84,7 +84,9 @@
                                             ...
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#agregar">Agregar a playlist</a></li>
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#agregar"
+                                                   onclick="document.getElementById('magic').value ='{{ musica.nombre }}'">Agregar
+                                                a playlist</a></li>
                                             <li><a class="dropdown-item"
                                                    href="http://127.0.0.1:8000/Multimedia/{{ musica.dircan }}"
                                                    download='{{ musica.nombre }}.mp3'>Descarcar</a></li>
@@ -102,8 +104,9 @@
                                                     aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <h4 class="modal-title" id="myModalLabel" style="color:black;">
-                                                Agregar a PlayList arriba2.0</h4>
+                                            <h4 class="modal-title" id="myModalLabel"
+                                                style="color:black;">
+                                                Agregar a PlayList 3.0</h4>
                                         </div>
                                         <div class="modal-body">
                                             <form class="d-flex" method="GET " action="/Agregar/">
@@ -116,9 +119,10 @@
                                                            type="submit "
                                                            value="{{ li }}" name="NamePlay">
                                                 {% endfor %}
-                                                <input type="text"
+                                                <input type="text" id="magic"
                                                        class="btn btn-outline-success my-4 my-sm-0 "
-                                                       value="{{ musica.nombre }}" name="nameSound">
+                                                       name="nameSound"
+                                                       style="display: none">
                                             </form>
                                         </div>
                                     </div>

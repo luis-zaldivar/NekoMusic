@@ -99,6 +99,39 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <!--ventana flotante -->
+                                <div class="modal fade" id="agregar" tabindex="-1" role="dialog"
+                                     aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel" style="color:black;">
+                                                    Agregar a PlayList arriba2.0</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="d-flex" method="GET " action="/Agregar/">
+                                                    {% for li in lista %}
+                                                        <span class="menu-icon">
+                                                            <i class="fa fa-bars"></i>
+                                                        </span>
+                                                        <input type="submit"
+                                                               class="btn btn-outline-success my-4 my-sm-0 "
+                                                               type="submit "
+                                                               value="{{ li }}" name="NamePlay">
+                                                    {% endfor %}
+                                                    <input type="text"
+                                                           class="btn btn-outline-success my-4 my-sm-0 "
+                                                           value="{{ musica.nombre }}" name="nameSound">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--ventana flotante -->
                             {% endfor %}
                             </tbody>
                         </table>

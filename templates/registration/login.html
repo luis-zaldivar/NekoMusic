@@ -1,21 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
     <link rel="stylesheet" href='{% static "css/style.css" %}'>
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="container" >
-	<div id="login-box" >
-		<div class="logo">
-			<img src='{% static "ima/logo_small_icon_only_inverted.png" %}' class="img img-responsive img-circle center-block"/>
-			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
-		</div><!-- /.logo -->
+<div class="container">
+    <div id="login-box">
+        <div class="logo">
+            <img src='{% static "ima/logo_small_icon_only_inverted.png" %}'
+                 class="img img-responsive img-circle center-block"/>
+            <h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+        </div><!-- /.logo -->
 
         <div class="text-center">
             <small class="text-danger">
@@ -36,22 +37,29 @@
             </small>
         </div>
 
-        <form class="form-inline " method="post"  style="margin: auto; width: 200px;">
-            {% csrf_token%}
+        <form class="form-inline " method="POST" action="/login/" style="margin: auto; width: 200px;">
+            {% csrf_token %}
             <div class="controls">
-                    <input style="width : 200px; heigth : 1px"class="form-control mr-sm-0 " type="text " placeholder="Usuario" aria-label="user " name="username" />
+                <input style="width : 200px; heigth : 1px" class="form-control mr-sm-0 " type="text "
+                       placeholder="Usuario" aria-label="user " name="username"/>
                 <p></p>
-                    <input style="width : 200px; heigth : 1px" class="form-control mr-sm-0 " type="password" placeholder="Contraseña" aria-label="contra " name="password" />
+                <input style="width : 200px; heigth : 1px" class="form-control mr-sm-0 " type="password"
+                       placeholder="Contraseña" aria-label="contra " name="password"/>
                 <p></p>
-                    <input type="submit" class="btn btn-outline-success my-4 my-sm-0 " style=" width: 5vw; margin-left : 4vw;"type="submit " value="Ingresar"></input>
-		</div>
-    </form>
-	</div>
+                <input type="submit" class="btn btn-outline-success my-4 my-sm-0 "
+                       style=" width: 5vw; margin-left : 4vw;" type="submit " value="Ingresar">
+                <p></p>
+                <input type="button" class="btn btn-outline-success my-4 my-sm-0 "
+                       style=" width: 5vw; margin-left : 4vw;" type="submit "value="Sing Up" onclick="location.href='{% url 'Sign_up' %}'">
+            </div>
+        </form>
+    </div>
 </div>
 <div id="particles-js"></div>
 <!-- partial -->
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
-<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script><script  src='{% static "js/script.js" %}'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
+<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+<script src='{% static "js/script.js" %}'></script>
 
 </body>
 </html>
