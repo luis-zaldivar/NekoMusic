@@ -20,12 +20,17 @@
                                                 <span class="menu-title">Musica</span>
                                             </a>
                                             {% for li in lista %}
-                                                <a href="#">
-                                              <span class="menu-icon">
-                                                  <i class="fa fa-bars"></i>
-                                              </span>
-                                                    <span class="menu-title">{{ li }}</span>
-                                                </a>
+                                                <form class="d-flex" method="GET " action="/MosPlay/">
+                                                    <a href="#">
+                                                        <span class="menu-icon">
+                                                            <i class="fa fa-bars"></i>
+                                                        </span>
+                                                        <input type="submit"
+                                                               class="btn btn-outline-success my-4 my-sm-0 "
+                                                               type="submit "
+                                                               value="{{ li }}" name="NamePlay">
+                                                    </a>
+                                                </form>
                                             {% endfor %}
                                             <div class="opcion">
                                                 <a href="#NewPlayList">
@@ -58,7 +63,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         {% for musica in musica %}
                             <tr>
                                 <th scope="row"></th>
@@ -80,8 +84,8 @@
                                             ...
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Agregar a playlist</a></li>
-                                            
+                                            <li><a class="dropdown-item" data-toggle="modal" data-target="#agregar"name="NamCan">Agregar
+                                                a playlist</a></li>
                                             <li><a class="dropdown-item"
                                                    href="http://127.0.0.1:8000/Multimedia/{{ musica.dircan }}"
                                                    download='{{ musica.nombre }}.mp3'>Descarcar</a></li>
@@ -90,6 +94,7 @@
                                 </td>
                             </tr>
                         {% endfor %}
+
                         </tbody>
                     </table>
                 </div>
@@ -137,13 +142,46 @@
                 </div>
                 <form class="d-flex" method="GET " action="/NewList/">
                     <div class="modal-body">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Name PlayList" aria-label="Name PlayList" name="PlaylisNew">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Name PlayList"
+                               aria-label="Name PlayList" name="PlaylisNew">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <input type="submit" class="btn btn-outline-success my-4 my-sm-0 " type="submit " value="Guardar">
+                        <input type="submit" class="btn btn-outline-success my-4 my-sm-0 " type="submit "
+                               value="Guardar">
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar a PlayList</h4>
+                </div>
+                <div class="modal-body">
+                    {% for li in lista %}
+                        <form class="d-flex" method="GET "action="/Agregar/">
+                            <a href="#">
+                                <span class="menu-icon">
+                                    <i class="fa fa-bars"></i>
+                                </span>
+                                <input type="submit"
+                                       class="btn btn-outline-success my-4 my-sm-0 "
+                                       type="submit "
+                                       value="{{ li }}" name="NamePlay">
+                            </a>
+                        </form>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
             </div>
         </div>
     </div>

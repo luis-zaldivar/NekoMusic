@@ -36,8 +36,9 @@ def login_view(request):
 def home(request):
     li = playli.objects.all()
     PlayList = li.filter(ID_Usu=request.user)
+    #entro=ID_Usu=request.user
+    #print(f"id usuario={entro}")
     listaCan = canciones.objects.all()
-
     return render(request, "Home.html", {"lista": PlayList, "musica": listaCan})
 
 
@@ -87,3 +88,21 @@ def nuevaLista(request):
         NewPlay.ID_Usu.add(IDLOG.id)
         messages.success(request, "Lista Creada")
         return redirect(to="/")
+    else:
+        return redirect(to="/")
+def mostrarPlayList(request):
+    li = playli.objects.all()
+    PlayList = li.filter(ID_Usu=request.user)
+    if(request.GET["NamePlay"]):
+        NamPlay=request.GET["NamePlay"]
+        play=playli.objects.get(NomPlay=NamPlay)
+        listaCan=play.ID_Can.all()
+        return render(request, "Home.html", {"lista": PlayList, "musica": listaCan})
+    else:
+        print("no se encontro nada")
+        return redirect(to="/")
+def AgregarLista(request):
+    if(request.GET["NamePlay"]&request.GET["NamCan"]):
+        NombCan=request.GET["NamCan"]
+        nomPlay=request.GET["NamePlay"]
+        print(f"cancion: {NombCan} play=nomPlay")

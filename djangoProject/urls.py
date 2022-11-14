@@ -22,19 +22,21 @@ from NekoMusic.API.router import router_Musica
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('api/',include(router_Musica.urls)),
+    path('api/', include(router_Musica.urls)),
     path("", views.home, name="Home"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('salir/', views.salir, name='salir'),
-    path('Sign_up/',views.Sign_up,name='Sign_up'),
+    path('Sign_up/', views.Sign_up, name='Sign_up'),
     path("buscarx/", views.busqueda),
-    path("NewList/",views.nuevaLista),
+    path("NewList/", views.nuevaLista),
+    path("MosPlay/", views.mostrarPlayList),
+    path("Agregar/", views.AgregarLista),
     path('api-auth/', include('rest_framework.urls')),
 
 ]
 
 urlpatterns += {
-    re_path(r'^Multimedia/(?P<path>.*)$',serve,{
-        'document_root':settings.MEDIA_ROOT,
+    re_path(r'^Multimedia/(?P<path>.*)$', serve, {
+        'document_root': settings.MEDIA_ROOT,
     })
 }
