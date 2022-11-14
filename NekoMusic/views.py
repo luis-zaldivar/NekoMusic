@@ -93,16 +93,26 @@ def nuevaLista(request):
 def mostrarPlayList(request):
     li = playli.objects.all()
     PlayList = li.filter(ID_Usu=request.user)
+    entro=ID_Usu=request.user
     if(request.GET["NamePlay"]):
         NamPlay=request.GET["NamePlay"]
-        play=playli.objects.get(NomPlay=NamPlay)
+        play=playli.objects.get(NomPlay=NamPlay,ID_Usu=entro.id)
         listaCan=play.ID_Can.all()
         return render(request, "Home.html", {"lista": PlayList, "musica": listaCan})
     else:
         print("no se encontro nada")
         return redirect(to="/")
 def AgregarLista(request):
-    if(request.GET["NamePlay"]&request.GET["NamCan"]):
-        NombCan=request.GET["NamCan"]
+    li = playli.objects.all()
+    PlayList = li.filter(ID_Usu=request.user)
+    entro = ID_Usu = request.user
+    if(request.GET["NamePlay"]):
         nomPlay=request.GET["NamePlay"]
-        print(f"cancion: {NombCan} play=nomPlay")
+        NomCan=request.GET["nameSound"]
+        allcan=canciones.objects.get(nombre=NomCan)
+        Newsound=playli.objects.get(NomPlay=nomPlay,ID_Usu=entro.id)
+        Newsound.ID_Can.add(allcan.id)
+        print(f"play={Newsound};{allcan}")
+        return redirect(to="/")
+    else:
+        return redirect(to="/")
